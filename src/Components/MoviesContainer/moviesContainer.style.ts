@@ -4,6 +4,9 @@ export const Container = styled.div`
   max-width: 1135px;
   width: 100%;
   margin: 0 auto;
+`;
+
+export const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(259px, 1fr));
   justify-content: space-between;
@@ -14,3 +17,5 @@ export const Container = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 `;
+
+export const TopContentWrapper = styled.div``;

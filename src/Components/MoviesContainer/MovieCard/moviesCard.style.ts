@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const MovieCard = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   max-width: 259px;
   width: 100%;
   max-height: 416px;
@@ -51,6 +52,8 @@ export const MovieCard = styled.div`
       border: 1px solid #9dc2ff;
       padding: 6px 12px;
       border-radius: 4px;
+      max-width: 160px;
+      width: 100%;
     }
   }
 `;
