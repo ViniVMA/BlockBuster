@@ -59,23 +59,35 @@ export const MoviesContainer = () => {
       <S.TopContentWrapper>
         <S.ContainerModal>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" placeholder="Title" {...register("Title", {})} />
+            <input
+              type="text"
+              placeholder="Title"
+              {...register("Title", { required: true })}
+            />
             <input
               type="text"
               placeholder="Director"
-              {...register("Director", {})}
+              {...register("Director", { required: true })}
             />
             <input
               type="text"
-              placeholder="Images"
-              {...register("Images", {})}
+              placeholder="Informe o Link da Imagem"
+              {...register("Images", { required: true })}
             />
-            <input type="text" placeholder="Plot" {...register("Plot", {})} />
-            <input type="text" placeholder="Genre" {...register("Genre", {})} />
+            <input
+              type="text"
+              placeholder="Plot"
+              {...register("Plot", { required: true })}
+            />
+            <input
+              type="text"
+              placeholder="Genre"
+              {...register("Genre", { required: true })}
+            />
             <input
               type="datetime"
               placeholder="Year"
-              {...register("Year", {})}
+              {...register("Year", { required: true })}
             />
             <input
               type="text"

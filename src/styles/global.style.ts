@@ -1,38 +1,34 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    * {
+     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        list-style-type: none;
     }
     html {
         font-size: 62.5%;
     }
-    html, body, #__next {
-        height: 100%;
+    html, body {
+       
     }
     body {
-        font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        /* color: #fff; */
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #fff;
+        font-size: 62.5%;
+        position: relative;
+
     }
 
-    .overlayModal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #00000050;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    button {
+      cursor: pointer;
+
+    }
+
+    a:hover {
+ cursor:pointer;
+}
+
     
-  }
-  .modal {
-    width: 100%;
-   max-width: 700px;
-   padding: 3rem;
-    
-  }
 `;
