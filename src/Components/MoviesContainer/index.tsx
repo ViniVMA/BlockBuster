@@ -5,64 +5,100 @@ import { useEffect, useState } from "react";
 import { MovieCard } from "./MovieCard";
 
 import * as S from "./moviesContainer.style";
-import { NewMoviesModal } from "./NewMoviesModal";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-enum GenderEnum {
-  female = "female",
-  male = "male",
-  other = "other",
-}
-
-interface IFormInput {
-  firstName: String;
-  gender: GenderEnum;
+interface MoviesProvider {
+  Title: string;
+  Director: string;
+  Images: string;
+  Plot: string;
+  Genre: string;
+  Year: string;
+  ImdbId: string;
+  id: number;
 }
 
 export const MoviesContainer = () => {
-  const [movies, setMovies] = useState([]);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [update, setUpdate] = useState(false);
+  const [movies, setMovies] = useState<MoviesProvider[]>([]);
 
   useEffect(() => {
     api.get("/posts").then((response) => {
       setMovies(response.data);
     });
-  }, []);
+  }, [movies]);
 
-  console.log(movies);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  const onSubmit = (data: any) => {
+    api
+      .post("/posts", data, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setMovies([...movies, response.data]);
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+  };
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const deletePost = (id: number) => {
+    api.delete(`posts/` + id).then((response) => {
+      console.log("deletado");
+      setMovies([...movies]);
+    });
+  };
 
   return (
     <S.Container>
       <S.TopContentWrapper>
-        <button onClick={openModal}>Novo Filme</button>
-        <NewMoviesModal
-          closeModal={closeModal}
-          isOpen={modalIsOpen}
-          overlayClassName="overlayModal"
-          className="modal"
-        />
+        <S.ContainerModal>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input type="text" placeholder="Title" {...register("Title", {})} />
+            <input
+              type="text"
+              placeholder="Director"
+              {...register("Director", {})}
+            />
+            <input
+              type="text"
+              placeholder="Images"
+              {...register("Images", {})}
+            />
+            <input type="text" placeholder="Plot" {...register("Plot", {})} />
+            <input type="text" placeholder="Genre" {...register("Genre", {})} />
+            <input
+              type="datetime"
+              placeholder="Year"
+              {...register("Year", {})}
+            />
+            <input
+              type="text"
+              placeholder="ImdbID"
+              {...register("ImdbID", {})}
+            />
+            <input type="submit" />
+          </form>
+        </S.ContainerModal>
       </S.TopContentWrapper>
       <S.CardsContainer>
         {movies.map(
-          ({ Images, Title, Director, Plot, Genre, Year, imdbID }: any) => {
+          ({ Images, Title, Director, Plot, Genre, Year, imdbID, id }: any) => {
             return (
               <MovieCard
-                key={imdbID}
+                key={id}
                 title={Title}
                 author={Director}
                 description={Plot}
                 gender={Genre}
                 date={Year}
                 img={Images}
+                onClick={() => deletePost(id)}
               />
             );
           },

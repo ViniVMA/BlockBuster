@@ -7,6 +7,7 @@ interface MovieCardProps {
   description?: string;
   gender?: string;
   date?: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const MovieCard = ({
@@ -16,6 +17,7 @@ export const MovieCard = ({
   description,
   gender,
   date,
+  onClick,
 }: MovieCardProps) => {
   return (
     <S.MovieCard>
@@ -30,6 +32,7 @@ export const MovieCard = ({
         <span className="gender">{gender}</span>
         <span>{date}</span>
       </div>
+      <button onClick={onClick}>teste</button>
     </S.MovieCard>
   );
 };

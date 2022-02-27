@@ -472,48 +472,27 @@
   ],
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "Title": "dsasa",
-      "Director": "dsadsa",
-      "Images": "",
-      "Plot": "",
-      "Genre": "",
-      "Year": "",
-      "ImdbID": "",
-      "id": 2
-    },
-    {
-      "Title": "dsasa",
-      "Director": "dsadsa",
-      "Images": "",
-      "Plot": "",
-      "Genre": "",
-      "Year": "",
-      "ImdbID": "",
-      "id": 3
-    },
-    {
-      "Title": "dsasa",
-      "Director": "dsadsa",
+      "Title": "",
+      "Director": "",
       "Images": "",
       "Plot": "",
       "Genre": "",
       "Year": "",
       "ImdbID": "",
       "id": 4
-    }
-  ],
-  "comments": [
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "Title": "",
+      "Director": "",
+      "Images": "",
+      "Plot": "",
+      "Genre": "",
+      "Year": "",
+      "ImdbID": "",
+      "id": 5
     }
   ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }
