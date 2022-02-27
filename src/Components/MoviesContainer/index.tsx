@@ -6,6 +6,7 @@ import { MovieCard } from "./MovieCard";
 
 import * as S from "./moviesContainer.style";
 import { SubmitHandler, useForm } from "react-hook-form";
+import useCollapse from "react-collapsed";
 
 interface MoviesProvider {
   Title: string;
@@ -20,6 +21,7 @@ interface MoviesProvider {
 
 export const MoviesContainer = () => {
   const [movies, setMovies] = useState<MoviesProvider[]>([]);
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
   useEffect(() => {
     api.get("/posts").then((response) => {
@@ -30,7 +32,7 @@ export const MoviesContainer = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
   } = useForm();
 
   const onSubmit = (data: any) => {
@@ -57,46 +59,54 @@ export const MoviesContainer = () => {
   return (
     <S.Container>
       <S.TopContentWrapper>
-        <S.ContainerModal>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              type="text"
-              placeholder="Title"
-              {...register("Title", { required: true })}
-            />
-            <input
-              type="text"
-              placeholder="Director"
-              {...register("Director", { required: true })}
-            />
-            <input
-              type="text"
-              placeholder="Informe o Link da Imagem"
-              {...register("Images", { required: true })}
-            />
-            <input
-              type="text"
-              placeholder="Plot"
-              {...register("Plot", { required: true })}
-            />
-            <input
-              type="text"
-              placeholder="Genre"
-              {...register("Genre", { required: true })}
-            />
-            <input
-              type="datetime"
-              placeholder="Year"
-              {...register("Year", { required: true })}
-            />
-            <input
-              type="text"
-              placeholder="ImdbID"
-              {...register("ImdbID", {})}
-            />
-            <input type="submit" />
-          </form>
-        </S.ContainerModal>
+        <S.CollapseWrapper>
+          <S.CollapseButton {...getToggleProps()}>
+            {isExpanded ? "Fechar" : "Cadastrar um novo Filme"}
+            <span />
+          </S.CollapseButton>
+          <section {...getCollapseProps()}>
+            <S.ContainerModal>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <input
+                  type="text"
+                  placeholder="Title"
+                  {...register("Title", { required: true })}
+                />
+                <input
+                  type="text"
+                  placeholder="Director"
+                  {...register("Director", { required: true })}
+                />
+                <input
+                  type="text"
+                  placeholder="Informe o Link da Imagem"
+                  {...register("Images", { required: true })}
+                />
+                <input
+                  type="text"
+                  placeholder="Plot"
+                  {...register("Plot", { required: true })}
+                />
+                <input
+                  type="text"
+                  placeholder="Genre"
+                  {...register("Genre", { required: true })}
+                />
+                <input
+                  type="datetime"
+                  placeholder="Year"
+                  {...register("Year", { required: true })}
+                />
+                <input
+                  type="text"
+                  placeholder="ImdbID"
+                  {...register("ImdbID", {})}
+                />
+                <input disabled={isValid} type="submit" />
+              </form>
+            </S.ContainerModal>
+          </section>
+        </S.CollapseWrapper>
       </S.TopContentWrapper>
       <S.CardsContainer>
         {movies.map(
