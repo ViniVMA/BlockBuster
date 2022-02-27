@@ -32,7 +32,7 @@ export const MovieCard = ({
         <span className="gender">{gender}</span>
         <span>{date}</span>
       </div>
-      <button onClick={onClick}>teste</button>
+      <button onClick={onClick}>Deletar Filme</button>
     </S.MovieCard>
   );
 };

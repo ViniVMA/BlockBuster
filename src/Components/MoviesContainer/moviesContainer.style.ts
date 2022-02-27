@@ -16,6 +16,7 @@ export const CardsContainer = styled.div`
   justify-content: space-between;
   gap: 24px 5px;
   justify-items: center;
+  margin-top: 30px;
 
   @media (max-width: 260px) {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -74,13 +75,25 @@ export const CollapseWrapper = styled.div``;
 export const CollapseButton = styled.div`
   position: relative;
   width: 100%;
+
   height: 48px;
   color: #fff;
-  /* background: red; */
-  /* border: 1px solid lime; */
   font-size: 3.6rem;
   font-weight: 200;
   margin-bottom: 20px;
+  border-bottom: 0.3px solid #ffffff50;
+  animation-name: glow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  @keyframes glow {
+    from {
+      text-shadow: 0px 0px 5px #fff, 0px 0px 5px #614ad3;
+    }
+    to {
+      text-shadow: 0px 0px 20px #fff, 0px 0px 20px #614ad3;
+    }
+  }
 
   :after {
     position: absolute;
@@ -91,4 +104,24 @@ export const CollapseButton = styled.div`
 
 export const Labels = styled.span`
   font-size: 1.6rem;
+`;
+
+export const Title = styled.span`
+  color: #fff;
+  font-size: 3.6rem;
+  font-weight: 200;
+  margin-bottom: 20px;
+  border-bottom: 0.3px solid #ffffff50;
+  animation-name: glow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  @keyframes glow {
+    from {
+      text-shadow: 0px 0px 5px #fff, 0px 0px 5px #614ad3;
+    }
+    to {
+      text-shadow: 0px 0px 20px #fff, 0px 0px 20px #614ad3;
+    }
+  }
 `;

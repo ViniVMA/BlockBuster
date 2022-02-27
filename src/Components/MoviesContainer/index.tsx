@@ -58,6 +58,26 @@ export const MoviesContainer = () => {
 
   return (
     <S.Container>
+      <S.Title>Filmes Disponiveis</S.Title>
+      <S.CardsContainer>
+        {movies.map(
+          ({ Images, Title, Director, Plot, Genre, Year, imdbID, id }: any) => {
+            return (
+              <MovieCard
+                key={id}
+                title={Title}
+                author={Director}
+                description={Plot}
+                gender={Genre}
+                date={Year}
+                img={Images}
+                onClick={() => deletePost(id)}
+              />
+            );
+          },
+        )}
+      </S.CardsContainer>
+
       <S.TopContentWrapper>
         <S.CollapseWrapper>
           <S.CollapseButton {...getToggleProps()}>
@@ -108,24 +128,6 @@ export const MoviesContainer = () => {
           </section>
         </S.CollapseWrapper>
       </S.TopContentWrapper>
-      <S.CardsContainer>
-        {movies.map(
-          ({ Images, Title, Director, Plot, Genre, Year, imdbID, id }: any) => {
-            return (
-              <MovieCard
-                key={id}
-                title={Title}
-                author={Director}
-                description={Plot}
-                gender={Genre}
-                date={Year}
-                img={Images}
-                onClick={() => deletePost(id)}
-              />
-            );
-          },
-        )}
-      </S.CardsContainer>
     </S.Container>
   );
 };
