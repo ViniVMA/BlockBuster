@@ -59,6 +59,8 @@ export const ContainerModal = styled.div<ButtonProps>`
       }
 
       input[type=submit] {
+  cursor: pointer;
+
         background-color: #45109810;
         :hover {
           background-color: #45109999;
@@ -75,17 +77,18 @@ export const CollapseWrapper = styled.div``;
 export const CollapseButton = styled.div`
   position: relative;
   width: 100%;
-
   height: 48px;
   color: #fff;
   font-size: 3.6rem;
   font-weight: 200;
-  margin-bottom: 20px;
+  margin-top: 20px;
   border-bottom: 0.3px solid #ffffff50;
   animation-name: glow;
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  cursor: pointer;
+
   @keyframes glow {
     from {
       text-shadow: 0px 0px 5px #fff, 0px 0px 5px #614ad3;

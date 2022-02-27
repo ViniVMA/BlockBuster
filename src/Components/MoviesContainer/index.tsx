@@ -89,12 +89,12 @@ export const MoviesContainer = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   type="text"
-                  placeholder="Title"
+                  placeholder="Titulo"
                   {...register("Title", { required: true })}
                 />
                 <input
                   type="text"
-                  placeholder="Director"
+                  placeholder="Diretor"
                   {...register("Director", { required: true })}
                 />
                 <input
@@ -104,22 +104,22 @@ export const MoviesContainer = () => {
                 />
                 <input
                   type="text"
-                  placeholder="Plot"
+                  placeholder="Descrição"
                   {...register("Plot", { required: true })}
                 />
                 <input
                   type="text"
-                  placeholder="Genre"
+                  placeholder="Genero"
                   {...register("Genre", { required: true })}
                 />
                 <input
                   type="datetime"
-                  placeholder="Year"
+                  placeholder="Ano"
                   {...register("Year", { required: true })}
                 />
                 <input
                   type="text"
-                  placeholder="ImdbID"
+                  placeholder="ImdbID (Opcional)"
                   {...register("ImdbID", {})}
                 />
                 <input disabled={isValid} type="submit" />

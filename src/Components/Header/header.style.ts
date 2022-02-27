@@ -5,10 +5,17 @@ export const Header = styled.header`
   justify-content: center;
   align-items: center;
   height: 99px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-radius: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 `;
 
 export const NavBar = styled.nav`
+  z-index: 999;
   margin: 0 auto;
   font-size: 1.4rem;
   max-width: 611px;
@@ -39,8 +46,8 @@ export const NavBar = styled.nav`
       padding: 3px 12px;
 
       :hover {
-        color: #48d3fe;
-        border: 2px solid #48d3fe;
+        color: #fff;
+        border: 2px solid #451099;
       }
     }
 
@@ -68,16 +75,23 @@ export const Content = styled.div`
 export const MobileNavBar = styled.nav`
   display: none;
   position: relative;
+  z-index: 999;
+
   @media (max-width: 768px) {
     display: block;
   }
 
   .navBar {
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10.5px);
+    -webkit-backdrop-filter: blur(10.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 300px;
-    background-color: #fff;
     position: absolute;
     top: 39px;
     right: 19%;
@@ -119,17 +133,18 @@ export const HamburguerMenu = styled.button`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 3px solid #48d3fe;
+  border: 3px solid #451099;
   border-radius: 10px;
   height: 40px;
   width: 40px;
-  background-color: #fff;
+  background-color: #000;
   justify-content: space-evenly;
+  margin-right: 10px;
 
   span {
     width: 17px;
     height: 5px;
-    background-color: #48d3fe;
-    border: 1px solid #48d3fe;
+    background-color: #451099;
+    border: 1px solid #451099;
   }
 `;
