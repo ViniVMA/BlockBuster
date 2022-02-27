@@ -43,8 +43,5 @@ Inicie a API local para fazer Requests
 
 ## Screenshots
 
-![App Screenshot](![image](https://user-images.githubusercontent.com/89563059/155866889-ae4a416b-423a-42b0-84be-742bb52449d7.png)
-)
-
-![Logo](![image](https://user-images.githubusercontent.com/89563059/155866917-da4bbe18-2e1b-410e-8d9d-662f4dc5d1ee.png)
-)
+![image](https://user-images.githubusercontent.com/89563059/155866937-a02a60e0-e5af-4c19-b0c7-f16089b28b49.png)
+![image](https://user-images.githubusercontent.com/89563059/155866944-eec5314c-b46f-470c-8172-197e1c87e9f6.png)
